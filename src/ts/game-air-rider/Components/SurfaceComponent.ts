@@ -1,9 +1,10 @@
 ﻿import { Coordinate, ICoordinate } from "../../gamelib/DataTypes/Coordinate";
 import { Transforms } from "../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../gamelib/Views/DrawContext";
 import { DrawPolyGraphic } from "../../gamelib/Views/PolyGraphic";
 import { IShape } from "../../gamelib/DataTypes/Shape";
-import { Game } from "../../gamelib/1Common/Game";
+
+import { Assets } from "../Assets/assets";
 
 export interface ISurfaceGeneration {
     readonly resolution: number;
@@ -20,7 +21,7 @@ export interface ISurface {
 
 export function DisplaySurface(ctx: DrawContext, surface: ISurface): void {
     const shape: IShape = { offset: { x: 0, y: 0 }, points: surface.points};
-    DrawPolyGraphic(ctx, 0, 0, shape, Game.assets.grass);
+    DrawPolyGraphic(ctx, 0, 0, shape, Assets.assets.grass);
 }
 
 export function generatePoint(x: number, yBase: number, generator: ISurfaceGeneration): ICoordinate {
@@ -58,7 +59,7 @@ export function addSurface(surface: ISurface,
     width: number,
     inputs: ISurfaceGeneration): ISurface {
     let newPoints: ICoordinate[] = surface.points.map(p => p);
-    const zoomEffect: number = (Game.assets.height-y)/(Game.assets.height/2);
+    const zoomEffect: number = (Assets.assets.height-y)/(Assets.assets.height/2);
     let buffer: number = (width) * zoomEffect; // 256
     let left: number = x - (width/2); // 260 - 256 = -4  // 1 - 260 = - 259 // 400 - 260 = 140
     let right: number = x + buffer; // 260 + 256 = 516 // 1 + 260 = 261 // 400 + 260 = 660

@@ -1,4 +1,4 @@
-import { DrawContext } from "../../../../src/ts/gamelib/1Common/DrawContext";
+import { DrawContext } from "./DrawContext";
 
 export function DrawText(ctx: DrawContext, x: number, y: number, text: string, font: string = "Arial", fontSize: number = 10): void {
     ctx.drawText(x,

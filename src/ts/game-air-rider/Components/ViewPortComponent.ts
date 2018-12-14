@@ -1,6 +1,7 @@
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../gamelib/Views/DrawContext";
 import { Game } from "../../gamelib/1Common/Game";
 import { centreZoom } from "../../gamelib/Actors/Helpers/zoom";
+import { Assets } from "../Assets/assets";
 
 export interface IView {
     zoomSpeed: number;
@@ -26,7 +27,7 @@ export function CreateView(followObject: boolean): IView {
 // if zoom < 1 then drawing origin moves to +ve figires and coordinates offset closer into screen
 export function Zoom(view: IView, zoomIn:boolean, zoomOut: boolean, y: number): IView {
     let viewScale: number = view.viewScale;
-    const z: number = centreZoom(Game.assets.height, y);
+    const z: number = centreZoom(Assets.assets.height, y);
     if (zoomIn) {
         viewScale = view.zoomSpeed;
     } else if (zoomOut) {
@@ -44,7 +45,7 @@ export function DisplayView<TState>(ctx:DrawContext, view: IView,
     ctx.save();
     // move origin to location of ship - location of ship factored by zoom
     if (view.followObject) {
-        ctx.translate(Game.assets.width/2 - x, Game.assets.height/2 - y);
+        ctx.translate(ctx.width/2 - x, ctx.height/2 - y);
     }
     ctx.translate(x * (1 - view.zoomLevel), y * (1 - view.zoomLevel));
     ctx.zoom(view.zoomLevel, view.zoomLevel);

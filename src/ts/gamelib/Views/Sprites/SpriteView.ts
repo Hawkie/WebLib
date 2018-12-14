@@ -1,4 +1,4 @@
-﻿import { DrawContext } from "../../../gamelib/1Common/DrawContext";
+﻿import { DrawContext } from "../DrawContext";
 import { ISprite, SpriteFrame } from "../../../gamelib/DataTypes/Sprite";
 import { IImageElement } from "../../Elements/ImageElement";
 

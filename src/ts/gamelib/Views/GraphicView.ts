@@ -1,4 +1,4 @@
-﻿import { DrawContext } from "../../../ts/gamelib/1Common/DrawContext";
+﻿import { DrawContext } from "./DrawContext";
 import { IImageElement } from "../Elements/ImageElement";
 
 export function DrawGraphic(ctx: DrawContext, x:number, y: number, graphic: IImageElement): void {

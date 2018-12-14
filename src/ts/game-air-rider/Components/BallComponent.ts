@@ -1,5 +1,5 @@
 import { DrawCircle } from "../../gamelib/Views/CircleView";
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../gamelib/Views/DrawContext";
 import { MoveWithVelocity } from "../../gamelib/Actors/Movers";
 
 export interface IBall {

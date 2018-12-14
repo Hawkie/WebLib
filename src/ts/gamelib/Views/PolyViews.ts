@@ -1,4 +1,4 @@
-﻿import { DrawContext } from "../../../ts/gamelib/1Common/DrawContext";
+﻿import { DrawContext } from "./DrawContext";
 import { IShape } from "../../../ts/gamelib/DataTypes/Shape";
 
 export function DrawPoly(ctx: DrawContext, x: number, y: number, shape: IShape): void {

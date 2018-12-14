@@ -1,13 +1,13 @@
 import { IStateProcessor } from "../gamelib/State/StateProcessor";
-import { DisplayTitle } from "../game/Components/TitleComponent";
 import { IEventState, CreateEventState, Click } from "../gamelib/Events/EventProcessor";
-import { DrawContext } from "../gamelib/1Common/DrawContext";
+import { DrawContext } from "../gamelib/Views/DrawContext";
 import { DrawText } from "../gamelib/Views/TextView";
 import { DrawNumber } from "../gamelib/Views/ValueView";
-import { Game } from "../gamelib/1Common/Game";
 import { DrawCircle } from "../gamelib/Views/CircleView";
 import { DrawLine } from "../gamelib/Views/LineView";
 import { DrawRectangle } from "../gamelib/Views/RectangleView";
+import { Assets } from "./assets";
+import { DisplayTitle } from "../gamelib/Components/TitleComponent";
 
 export interface ITestState {
     title: string;
@@ -45,7 +45,7 @@ export function EmptyUpdate<T>(state: T, timeModifier: number): T {
 
 export function SoundTest(state: ITestState): ITestState {
     return {...state,
-        errors: [Game.assets.cinematic.display(), Game.assets.explosion.display()]
+        errors: [Assets.assets.cinematic.display(), Assets.assets.explosion.display()]
     };
 }
 

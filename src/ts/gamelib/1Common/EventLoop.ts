@@ -1,7 +1,8 @@
 import { Canvas } from "../Elements/Canvas";
 import { EventProcessor, IEventState } from "../Events/EventProcessor";
 import { IStateProcessor } from "../State/StateProcessor";
-import { DrawContext } from "./DrawContext";
+import { DrawContext } from "../Views/DrawContext";
+import { IAssets } from "../../game-test/assets";
 
 
 export class EventLoop<TState> {
@@ -12,9 +13,10 @@ export class EventLoop<TState> {
         private window: Window,
         private canvas: Canvas,
         private state: TState,
-        private stateMachine: IStateProcessor<TState>) {
+        private stateMachine: IStateProcessor<TState>,
+        private assets: IAssets) {
             // loosely bound to canvas
-        this.eventProcessor = new EventProcessor(this.document, this.canvas.canvas);
+        this.eventProcessor = new EventProcessor(this.document, this.canvas.canvas, this.assets);
     }
 
     loop(): void {

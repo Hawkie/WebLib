@@ -1,12 +1,12 @@
 {
-  "name": "ludum-dare-43",
+  "name": "weblib",
   "private": true,
-  "description": "Evolving game framework",
+  "description": "Evolving web framework",
   "version": "0.0.1",
   "main": "main.js",
   "repository": {
     "type": "GIT",
-    "url": "https://github.com/Hawkie/LudumDare43"
+    "url": "https://github.com/Hawkie/WebLib"
   },
   "browserslist": [
     "Safari 10",
@@ -17,9 +17,10 @@
   "babel": {
     "presets": [
       [
-        "@babel/preset-env", {
+        "@babel/preset-env",
+        {
           "useBuiltIns": "usage",
-          "debug":true
+          "debug": true
         }
       ]
     ]

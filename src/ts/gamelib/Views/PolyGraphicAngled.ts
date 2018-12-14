@@ -1,4 +1,4 @@
-import { DrawContext } from "../1Common/DrawContext";
+import { DrawContext } from "./DrawContext";
 import { IImageElement } from "../Elements/ImageElement";
 import { IShape } from "../DataTypes/Shape";
 

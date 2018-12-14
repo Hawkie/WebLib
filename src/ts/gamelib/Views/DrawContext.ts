@@ -1,7 +1,9 @@
-import { Coordinate, ICoordinate } from "../../../../src/ts/gamelib/DataTypes/Coordinate";
+import { Coordinate, ICoordinate } from "../DataTypes/Coordinate";
 
 export class DrawContext {
-    constructor(private ctx: CanvasRenderingContext2D) {
+    constructor(private ctx: CanvasRenderingContext2D,
+            public readonly width: number,
+            public readonly height: number) {
         this.ctx.strokeStyle = "#fff";
         this.ctx.fillStyle = "#fff";
     }

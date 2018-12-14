@@ -1,9 +1,10 @@
-import { DisplayText, DisplayTitle } from "../../Components/TitleComponent";
-import { DrawContext } from "../../../gamelib/1Common/DrawContext";
+import { DisplayText, DisplayTitle } from "../../../gamelib/Components/TitleComponent";
+import { DrawContext } from "../../../gamelib/Views/DrawContext";
 import { IEventState, Click, DownCheck } from "../../../gamelib/Events/EventProcessor";
 import { Keys } from "../../../gamelib/Events/KeyHandler";
 import { Game } from "../../../gamelib/1Common/Game";
 import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
+import { Assets } from "../../Assets/assets";
 
 export interface IHelp {
     readonly title: string;
@@ -62,7 +63,7 @@ export function CreateHintHelp(): IHelp {
 export function DisplayHelp(ctx: DrawContext, state: IHelp): void {
     ctx.clear();
     ctx.zoom(0.5, 0.5);
-    DrawGraphic(ctx, 0, 0, Game.assets.backButton);
+    DrawGraphic(ctx, 0, 0, Assets.assets.backButton);
     ctx.zoom(2, 2);
 
     DisplayTitle(ctx, state.title);

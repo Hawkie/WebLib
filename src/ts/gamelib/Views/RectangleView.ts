@@ -1,4 +1,4 @@
-import { DrawContext } from "../1Common/DrawContext";
+import { DrawContext } from "./DrawContext";
 
 export function DrawRectangle(drawContext: DrawContext,
     x: number,

@@ -1,4 +1,4 @@
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../gamelib/Views/DrawContext";
 import { DrawText } from "../../gamelib/Views/TextView";
 import { IAudioElement } from "../../gamelib/Elements/AudioElement";
 import { IEventState } from "../../gamelib/Events/EventProcessor";

@@ -1,4 +1,4 @@
-import { DrawContext } from "../1Common/DrawContext";
+import { DrawContext } from "../Views/DrawContext";
 import { IEventState } from "../Events/EventProcessor";
 
 export interface IStateProcessor<T> {

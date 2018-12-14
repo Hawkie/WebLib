@@ -1,10 +1,19 @@
 import { IImageElement, ImageElement } from "../../gamelib/Elements/ImageElement";
 import { IAudioElement, AudioElement } from "../../gamelib/Elements/AudioElement";
-import { Game } from "../../gamelib/1Common/Game";
+
+export interface IAssets {
+    safariAudio(): void;
+}
+
+export function CreateAirRiderAssets(): IAssets {
+    return {
+        safariAudio: SafariAudio,
+    };
+}
 
 export class Assets {
 
-    // graphics
+    // images
     public terrain: IImageElement = new ImageElement("res/img/terrain.png");
     public grass: IImageElement = new ImageElement("res/img/grass25.png");
     public airBalloon: IImageElement = new ImageElement("res/img/airBalloon.png");
@@ -32,29 +41,32 @@ export class Assets {
 
     public readonly width:number = 480;
     public readonly height:number = 512;
+
+    public static assets: Assets = new Assets();
 }
 
-let init: boolean = false;
 
-export function safariAudio(): void {
+
+let init: boolean = false;
+export function SafariAudio(): void {
     let log:string = "";
     let initialised: boolean = false;
     if (!init) {
-        if (Game.assets.aCtx.state === "suspended") {
-            Game.assets.aCtx.resume();
+        if (Assets.assets.aCtx.state === "suspended") {
+            Assets.assets.aCtx.resume();
             log = "Suspended Audio Resumed";
         } else {
             log = "Audio not suspended";
         }
         console.log(log);
-        initialised = Game.assets.flyInspire.init();
-        initialised = initialised && Game.assets.emotional.init();
-        initialised = initialised && Game.assets.cinematic.init();
-        initialised = initialised && Game.assets.explosion.init();
-        initialised = initialised && Game.assets.glassPing.init();
-        initialised = initialised && Game.assets.thrust.init();
-        initialised = initialised && Game.assets.splat.init();
-        initialised = initialised && Game.assets.scream.init();
+        initialised = Assets.assets.flyInspire.init();
+        initialised = initialised && Assets.assets.emotional.init();
+        initialised = initialised && Assets.assets.cinematic.init();
+        initialised = initialised && Assets.assets.explosion.init();
+        initialised = initialised && Assets.assets.glassPing.init();
+        initialised = initialised && Assets.assets.thrust.init();
+        initialised = initialised && Assets.assets.splat.init();
+        initialised = initialised && Assets.assets.scream.init();
         init = initialised;
         console.log("Safari sound initialised: " + init);
     }

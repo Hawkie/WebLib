@@ -1,13 +1,14 @@
 import { MoveWithVelocity } from "../../../gamelib/Actors/Movers";
 import { Coordinate } from "../../../gamelib/DataTypes/Coordinate";
 import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../../gamelib/Views/DrawContext";
 import { IParticle, DisplayField } from "../../../gamelib/Components/ParticleFieldComponent";
 import { FilterParticles } from "../../../gamelib/Actors/FieldParticleRemover";
 import { AccelerateWithForces } from "../../../gamelib/Actors/Accelerator";
 import { IVector } from "../../../gamelib/DataTypes/Vector";
 import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
 import { Game } from "../../../gamelib/1Common/Game";
+import { Assets } from "../../Assets/assets";
 
 export interface IWeapon {
     readonly bullets: ReadonlyArray<IParticle>;
@@ -32,7 +33,7 @@ export function CreateWeapon(reloadTimeSec: number, bulletVelocity: number): IWe
 }
 
 export function DisplayWeapon(ctx: DrawContext, weapon: IWeapon): void {
-    weapon.bullets.forEach(p =>  DrawGraphic(ctx, p.x-15, p.y-15, Game.assets.fallingMan));
+    weapon.bullets.forEach(p =>  DrawGraphic(ctx, p.x-15, p.y-15, Assets.assets.fallingMan));
 }
 
 export function RemoveBullet(weapon: IWeapon, bulletIndex: number): IWeapon {

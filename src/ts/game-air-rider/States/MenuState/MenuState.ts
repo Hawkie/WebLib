@@ -1,8 +1,8 @@
 import { IMenuComponent, InputMenu, SoundMenu, DisplayMenu } from "../../Components/MenuComponent";
 import { IParticleField, CreateField } from "../../Components/FieldComponent";
 import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/1Common/DrawContext";
-import { DisplayTitle, DisplayText } from "../../Components/TitleComponent";
+import { DrawContext } from "../../../gamelib/Views/DrawContext";
+import { DisplayTitle, DisplayText } from "../../../gamelib/Components/TitleComponent";
 import { DisplayField, FieldGenMove } from "../../../gamelib/Components/ParticleFieldComponent";
 import { IEventState, CreateEventState, Click } from "../../../gamelib/Events/EventProcessor";
 import { IStateProcessor } from "../../../gamelib/State/StateProcessor";
@@ -11,6 +11,7 @@ import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
 import { DrawRectangle } from "../../../gamelib/Views/RectangleView";
 import { DrawCircle } from "../../../gamelib/Views/CircleView";
 import { DrawText } from "../../../gamelib/Views/TextView";
+import { Assets } from "../../Assets/assets";
 
 export interface IMenuState {
     readonly title: string;
@@ -81,7 +82,7 @@ export function DisplayMenuState(ctx: DrawContext, state: IMenuState): void {
     DisplayField(ctx, state.starField2.particles);
     DisplayTitle(ctx, state.title);
     DisplayMenu(ctx, 200, 100, state.menu);
-    DrawGraphic(ctx, state.balloonX, state.balloonY, Game.assets.airBalloon);
+    DrawGraphic(ctx, state.balloonX, state.balloonY, Assets.assets.airBalloon);
     DisplayText(ctx, state.help1, 100, 400);
     DisplayText(ctx, state.help2, 100, 415);
     DisplayText(ctx, state.help3, 100, 430);
@@ -92,7 +93,7 @@ export function UpdateMenuState(state:IMenuState, timeModifier: number): IMenuSt
         starField1: FieldGenMove(timeModifier, state.starField1, true, 2, (now: number) => {
             return {
                 x: 0,
-                y: Transforms.random(0, Game.assets.height),
+                y: Transforms.random(0, Assets.assets.height),
                 Vx: Transforms.random(10, 30),
                 Vy: 0,
                 born: now,
@@ -102,7 +103,7 @@ export function UpdateMenuState(state:IMenuState, timeModifier: number): IMenuSt
         starField2: FieldGenMove(timeModifier, state.starField2, true, 3, (now: number) => {
             return {
                 x: 0,
-                y: Transforms.random(0, Game.assets.height),
+                y: Transforms.random(0, Assets.assets.height),
                 Vx: Transforms.random(30, 50),
                 Vy: 0,
                 born: now,
@@ -116,7 +117,7 @@ export function UpdateMenuState(state:IMenuState, timeModifier: number): IMenuSt
 
 export function SoundMenuState(state: IMenuState): IMenuState {
     return {...state,
-        menu: SoundMenu(state.menu, Game.assets.flyInspire, Game.assets.glassPing)
+        menu: SoundMenu(state.menu, Assets.assets.flyInspire, Assets.assets.glassPing)
     };
 }
 

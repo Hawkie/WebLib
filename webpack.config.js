@@ -2,7 +2,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-    entry: path.join(__dirname, '/src/ts/main.ts'),
+    entry: path.join(__dirname, '/src/ts/game-air-rider/main.ts'),
     mode: "development",
     devtool: 'inline-source-map',
     module: {

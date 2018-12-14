@@ -1,4 +1,4 @@
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../gamelib/Views/DrawContext";
 import { DrawRectangle } from "../../gamelib/Views/RectangleView";
 import { circular, sine, time } from "../../gamelib/Actors/Paths2D/path";
 import { ICoordinate } from "../../gamelib/DataTypes/Coordinate";

@@ -1,5 +1,5 @@
 import { FieldGenerate } from "../Actors/FieldGenerator";
-import { DrawContext } from "../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../Views/DrawContext";
 import { DrawRectangle } from "../../gamelib/Views/RectangleView";
 import { FieldMoveParticlesWithVelocity, IMovesWithVelocity } from "../Actors/FieldMover";
 

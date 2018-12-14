@@ -4,13 +4,13 @@ import { ISurface, DisplaySurface, addSurface, TestFlat } from "../../Components
 import { IParticleField } from "../../Components/FieldComponent";
 import { IControls, InputControls, CreateControls } from "../../Components/ControlsComponent";
 import { IEventState, CreateEventState, Click } from "../../../gamelib/Events/EventProcessor";
-import { DrawContext } from "../../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../../gamelib/Views/DrawContext";
 import { DisplayField, FieldGenMove, IParticle } from "../../../gamelib/Components/ParticleFieldComponent";
 import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { Game } from "../../../gamelib/1Common/Game";
 import { IShapedLocation, ShapeCollisionDetector } from "../../../gamelib/Interactors/ShapeCollisionDetector";
 import { ISplat, CreateSplat, DisplaySplat, UpdateSplat, ResetSplat } from "../../Components/SplatComponent";
 import { DrawLine } from "../../../gamelib/Views/LineView";
+import { Assets } from "../../Assets/assets";
 
 export interface ILandExplorerState {
     readonly title: string;
@@ -59,7 +59,7 @@ export function DisplayLandExplorer(ctx: DrawContext, state: ILandExplorerState)
 export function LandExplorerSounds(state: ILandExplorerState): ILandExplorerState {
     ShipSounds(state.ship);
     if (state.splatSound) {
-        Game.assets.splat.replay();
+        Assets.assets.splat.replay();
     }
     // turn off any sound triggers - need to think about this
     return state;
@@ -68,7 +68,7 @@ export function LandExplorerSounds(state: ILandExplorerState): ILandExplorerStat
 
 export function StateCopyToUpdate(state: ILandExplorerState, timeModifier: number): ILandExplorerState {
     // distance(px)/100 * passengers/8
-    let score: number = state.residualScore + ((state.ship.x - Game.assets.width/2) / 50) * state.ship.weapon1.remaining/8;
+    let score: number = state.residualScore + ((state.ship.x - Assets.assets.width/2) / 50) * state.ship.weapon1.remaining/8;
     let splat: ISplat = state.splat;
     if (state.splatIndex > -1) {
         const passenger: IParticle = state.ship.weapon1.bullets[state.splatIndex];
@@ -80,14 +80,14 @@ export function StateCopyToUpdate(state: ILandExplorerState, timeModifier: numbe
         starField: FieldGenMove(timeModifier, state.starField, true, 2, (now: number) => {
             return {
                 x: 0,
-                y: Transforms.random(0, Game.assets.height),
+                y: Transforms.random(0, Assets.assets.height),
                 Vx: Transforms.random(10, 30),
                 Vy: 0,
                 born: now,
                 size: 1,
             };
         }),
-        surface: addSurface(state.surface, state.ship.x, state.ship.y, Game.assets.width, state.surface.surfaceGenerator),
+        surface: addSurface(state.surface, state.ship.x, state.ship.y, Assets.assets.width, state.surface.surfaceGenerator),
         score: score,
         splat: splat,
     };

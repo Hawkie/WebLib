@@ -1,6 +1,5 @@
 import { IEventState } from "./EventProcessor";
 import { ICoordinate } from "../DataTypes/Coordinate";
-import { safariAudio } from "../../game/Assets/assets";
 
 // mouse events
 export function OnMouse(eState: IEventState, element: HTMLElement, e: MouseEvent): IEventState {
@@ -19,7 +18,6 @@ export function OnMouse(eState: IEventState, element: HTMLElement, e: MouseEvent
             buttons: e.buttons,
         };
     } else if (e.type === "mouseup") {
-        safariAudio();
         return {...eState,
             end: coord,
             buttons: e.buttons,

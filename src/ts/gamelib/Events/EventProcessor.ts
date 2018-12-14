@@ -2,6 +2,7 @@
 import { OnTouch } from "./TouchHandler";
 import { OnMouse } from "./MouseHandler";
 import { ICoordinate } from "../DataTypes/Coordinate";
+import { IAssets } from "../../game-air-rider/Assets/assets";
 
 export interface IEventState {
     readonly soundInit: boolean;
@@ -50,7 +51,8 @@ export class EventProcessor {
     eState: IEventState = CreateEventState();
 
     constructor(private document: Document,
-        private element: HTMLElement) {
+        private element: HTMLElement,
+        private assets: IAssets) {
         this.addListeners();
     }
 
@@ -59,10 +61,16 @@ export class EventProcessor {
     }
 
     private _OnTouch(e: TouchEvent): void {
+        if (e.type === "mouseup") {
+            this.assets.safariAudio();
+        }
         this.eState = OnTouch(this.eState, this.element, e);
     }
 
     private _OnMouse(e: MouseEvent): void {
+        if (e.type === "mouseup") {
+            this.assets.safariAudio();
+        }
         this.eState = OnMouse(this.eState, this.element, e);
     }
 

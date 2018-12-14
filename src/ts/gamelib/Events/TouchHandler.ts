@@ -1,6 +1,5 @@
 import { ICoordinate } from "../DataTypes/Coordinate";
 import { IEventState } from "./EventProcessor";
-import { safariAudio } from "../../game/Assets/assets";
 
 // touch events
  export function OnTouch(eState:IEventState, element: HTMLElement, e: TouchEvent): IEventState {
@@ -26,7 +25,6 @@ import { safariAudio } from "../../game/Assets/assets";
             };
         }
         if (e.type === "touchend") {
-            safariAudio();
             return {...eState,
                 end: coord,
                 touchForce: t.force,

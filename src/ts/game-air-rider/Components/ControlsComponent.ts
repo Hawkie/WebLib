@@ -1,6 +1,7 @@
 import { Keys } from "../../gamelib/Events/KeyHandler";
 import { IEventState } from "../../gamelib/Events/EventProcessor";
 import { Game } from "../../gamelib/1Common/Game";
+import { Assets } from "../Assets/assets";
 
 
 export interface IControls {
@@ -70,9 +71,9 @@ export function InputControls(eState: IEventState): IControls {
         fire = true;
     }
     if (eState.current !== undefined && eState.click) {
-        if (eState.current.x > Game.assets.width/2-25
-            && eState.current.x < Game.assets.width/2+25
-            && eState.current.y > Game.assets.height-50) {
+        if (eState.current.x > Assets.assets.width/2-25
+            && eState.current.x < Assets.assets.width/2+25
+            && eState.current.y > Assets.assets.height-50) {
                 fire = true;
         }
     }
@@ -96,7 +97,7 @@ export function InputControls(eState: IEventState): IControls {
     }
     // back button (implement as component)
     if (eState.current !== undefined && eState.click) {
-        if (eState.current.x < 50 && eState.current.y > Game.assets.height-50) {
+        if (eState.current.x < 50 && eState.current.y > Assets.assets.height-50) {
             next = true;
         }
     }

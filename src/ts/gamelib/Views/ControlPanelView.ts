@@ -1,4 +1,4 @@
-﻿import { DrawContext } from "../../../ts/gamelib/1Common/DrawContext";
+﻿import { DrawContext } from "./DrawContext";
 
 export function DrawPanel(drawContext: DrawContext): void {
     let factor: number = this.model.value / (this.model.max - this.model.min);

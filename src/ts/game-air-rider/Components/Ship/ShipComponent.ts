@@ -1,7 +1,7 @@
 import { Coordinate, ICoordinate } from "../../../gamelib/DataTypes/Coordinate";
 import { IShape, Shape } from "../../../gamelib/DataTypes/Shape";
 import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/1Common/DrawContext";
+import { DrawContext } from "../../../gamelib/Views/DrawContext";
 import { DrawPoly } from "../../../gamelib/Views/PolyViews";
 import { IControls } from "../ControlsComponent";
 import { IWeapon, PullTrigger, DisplayWeapon, CreateWeapon, RemoveBullet, StopBullet } from "./WeaponComponent";
@@ -11,6 +11,7 @@ import { Game } from "../../../gamelib/1Common/Game";
 import { DrawPolyGraphic } from "../../../gamelib/Views/PolyGraphic";
 import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
 import { DrawText } from "../../../gamelib/Views/TextView";
+import { Assets } from "../../Assets/assets";
 
 export interface IPhysics {
     readonly x: number;
@@ -108,8 +109,8 @@ export function CreateShip(x: number, y: number,
 export function DisplayShip(ctx: DrawContext, ship: IShip): void {
     DrawPoly(ctx, ship.x + ship.shape.offset.x, ship.y + ship.shape.offset.y, ship.shape);
     DisplayExhaust(ctx, ship.exhaust);
-    DrawGraphic(ctx, ship.x-51, ship.y-123, Game.assets.airBalloon);
-    // // DrawGraphic(ctx, ship.x-48, ship.y-117, Game.assets.airBalloon2);
+    DrawGraphic(ctx, ship.x-51, ship.y-123, Assets.assets.airBalloon);
+    // // DrawGraphic(ctx, ship.x-48, ship.y-117, Assets.assets.airBalloon2);
     DisplayExplosion(ctx, ship.explosion, ship.x + ship.shape.offset.x, ship.y + ship.shape.offset.y);
     DisplayWeapon(ctx, ship.weapon1);
 }
@@ -117,15 +118,15 @@ export function DisplayShip(ctx: DrawContext, ship: IShip): void {
 // doesn't change state
 export function ShipSounds(ship: IShip): void {
     if (ship.crashed) {
-        Game.assets.explosion.playOnce();
+        Assets.assets.explosion.playOnce();
     }
     if (ship.exhaust.thrustOn) {
-        Game.assets.thrust.play();
+        Assets.assets.thrust.play();
     } else {
-        Game.assets.thrust.pause();
+        Assets.assets.thrust.pause();
     }
     if (ship.weapon1.fired) {
-        Game.assets.scream.replay();
+        Assets.assets.scream.replay();
     }
 }
 
