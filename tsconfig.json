@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "es6",
+        "sourceMap": true,
+        "outDir": "./distjs/",
+        "esModuleInterop": true 
+    },
+    "exclude":[
+        "ts/Server", "node_modules"
+    ]
+}

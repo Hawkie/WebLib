@@ -1,0 +1,16 @@
+src/ts/**/*.js
+src/ts/**/*.js.map
+src/cs/api/**/*.dll
+src/cs/api/**/*.pdb
+src/cs/api/**/Debug
+.cache
+.vscode/settings.json
+.vscode/launch.json
+/.vs
+/node_modules
+/obj
+/bin
+*.user
+~*
+/dist
+/distjs

@@ -1,0 +1,55 @@
+{
+  "name": "ludum-dare-43",
+  "private": true,
+  "description": "Evolving game framework",
+  "version": "0.0.1",
+  "main": "main.js",
+  "repository": {
+    "type": "GIT",
+    "url": "https://github.com/Hawkie/LudumDare43"
+  },
+  "browserslist": [
+    "Safari 10",
+    "Edge 16",
+    "chrome 58",
+    "ie 11"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env", {
+          "useBuiltIns": "usage",
+          "debug":true
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "hello": "echo 'Hello'",
+    "jest-w": "jest --watch",
+    "test": "jest",
+    "build": "webpack",
+    "build:js": "babel dist/bundle.js -o dist/babel.js"
+  },
+  "keywords": [],
+  "author": "Hawkie",
+  "dependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/polyfill": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@types/jest": "^23.3.5",
+    "ajv": "^6.6.1",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.6.0",
+    "jest": "^23.6.0",
+    "merge": ">=1.2.1",
+    "ts-jest": "^23.10.4",
+    "ts-loader": "^5.3.0",
+    "typescript": "^3.1.3",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
