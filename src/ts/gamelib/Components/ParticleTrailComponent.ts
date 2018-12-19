@@ -5,6 +5,7 @@ import { ICoordinate } from "../DataTypes/Coordinate";
 import { combine, rotate } from "../DataTypes/Path";
 import { DrawGraphic } from "../Views/GraphicView";
 import { Assets } from "../../../../examples/game-test/src/ts/assets";
+import { IImageElement } from "../Elements/ImageElement";
 
 export interface IParticleTrail {
     readonly x: number;
@@ -27,14 +28,14 @@ export function CreateParticleTrail(x: number, y: number): IParticleTrail {
     return particle;
 }
 
-export function DisplayParticleTrail(ctx: DrawContext, p: IParticleTrail): void {
-    for (let i: number = 0; i < p.length; i++) {
+export function DisplayParticleTrail(ctx: DrawContext, p: IParticleTrail, img:IImageElement): void {
+    for (let i: number = p.length-1; i >= 0 ; i--) {
         const tShifted: number = p.t - i*i *p.lag;
         let l: ICoordinate = line(tShifted, p.angle, 10);
         let s: ICoordinate = sine(tShifted, 100, 1);
         let sa: ICoordinate = rotate(s, p.angle - 90);
         const coord: ICoordinate = combine(l, sa);
-        DrawRectangle(ctx, p.x + coord.x, p.y + coord.y, 2, 2);
+        DrawGraphic(ctx, p.x + coord.x, p.y + coord.y, img);
     }
 }
 

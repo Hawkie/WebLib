@@ -18,6 +18,7 @@ export class Assets {
     // buttons
     public backButton: IImageElement = new ImageElement("res/img/backButtonThumb.png");
     public nextButton: IImageElement = new ImageElement("res/img/nextButtonThumb.png");
+    public redBall: IImageElement = new ImageElement("res/img/redBall.png");
 
 
     // sounds

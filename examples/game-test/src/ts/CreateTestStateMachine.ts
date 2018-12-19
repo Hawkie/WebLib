@@ -85,7 +85,7 @@ export function DisplayTest(ctx: DrawContext, state:ITestState): void {
     ctx.clear();
     DisplayTitle(ctx, state.title);
 
-    DisplayParticleTrail(ctx, state.trail);
+    DisplayParticleTrail(ctx, state.trail, Assets.assets.redBall);
 
     let y: number = 100;
     state.errors.forEach(e => { DrawText(ctx, 100, y, e); y+=15;});
