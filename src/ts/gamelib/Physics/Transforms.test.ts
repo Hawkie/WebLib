@@ -38,11 +38,19 @@ test.each([[30, 10, 5, -8.66]])("VectorToCartesians", (angle, length, expX, expY
     expect(result.y).toBeCloseTo(expY);
 });
 
-test.each([[4, 3, 53.13, 5]])("CartesianToVector", (x, y, expAngle, expLength) => {
+test.each([[4, 3, 53.13, 5], [10, 0, 90, 10], [-10, 0, -90, 10], [0, 10, 0, 10]])("CartesianToVector", (x, y, expAngle, expLength) => {
     let result: IVector = t.CartesianToVector(x, y);
     expect(result.angle).toBeCloseTo(expAngle, 2);
     expect(result.length).toBeCloseTo(expLength, 1);
 });
+
+const p:ICoordinate[] = [{x:10, y:0}];
+test.each([[0, 10, 0], [90, 0, 10], [180, -10, 0], [270, 0, -10]])("RotateCoordinates", (angle, expX, expY) => {
+    let result: ICoordinate[] = t.RotateCoordinates(p,angle);
+    expect(result[0].x).toBeCloseTo(expX, 2);
+    expect(result[0].y).toBeCloseTo(expY, 2);
+});
+
 
 test.each([[2,2,2,4,4]])("Scale", (x, y, scale, expX, expY) => {
     let result: ICoordinate[] = t.Scale([{x: x, y:y}], scale, scale);

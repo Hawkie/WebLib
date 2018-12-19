@@ -8,11 +8,15 @@ import { DrawLine } from "../../../../src/ts/gamelib/Views/LineView";
 import { DrawRectangle } from "../../../../src/ts/gamelib/Views/RectangleView";
 import { Assets } from "./assets";
 import { DisplayTitle } from "../../../../src/ts/gamelib/Components/TitleComponent";
+import { IParticleTrail, CreateParticleTrail,
+    UpdateParticleTrail, DisplayParticleTrail } from "../../../../src/ts/gamelib/Components/ParticleTrailComponent";
+import { Transforms } from "../../../../src/ts/gamelib/Physics/Transforms";
 
 export interface ITestState {
-    title: string;
-    errors: string[];
-    controls: IEventState;
+    readonly title: string;
+    readonly errors: string[];
+    readonly controls: IEventState;
+    readonly trail: IParticleTrail;
 }
 
 export function CreateTestState(): ITestState {
@@ -20,6 +24,7 @@ export function CreateTestState(): ITestState {
         title: "Test State",
         errors: [],
         controls: CreateEventState(),
+        trail: CreateParticleTrail(0, 0),
     };
 }
 
@@ -30,7 +35,7 @@ export function CreateTestStateMachine(): IStateProcessor<ITestState> {
         sound: SoundTest,
         display: DisplayTest,
         input: InputTest,
-        update: EmptyUpdate,
+        update: UpdateTest,
         next: (state: ITestState) => { return undefined; }
     };
 }
@@ -43,6 +48,12 @@ export function EmptyUpdate<T>(state: T, timeModifier: number): T {
     return state;
 }
 
+export function UpdateTest(state: ITestState, timeModifier: number): ITestState {
+    return {...state,
+        trail: UpdateParticleTrail(state.trail, timeModifier),
+    };
+}
+
 export function SoundTest(state: ITestState): ITestState {
     return {...state,
         errors: [Assets.assets.cinematic.display(), Assets.assets.explosion.display()]
@@ -50,14 +61,32 @@ export function SoundTest(state: ITestState): ITestState {
 }
 
 export function InputTest(state:ITestState, eState:IEventState, timeModifier:number): ITestState {
+    let c: IEventState = Click(state.controls, eState);
+    let angle: number = 90;
+    let p: IParticleTrail = state.trail;
+    if (c.click) {
+        if (c.current !== c.start) {
+            angle = Transforms.CartesianToVector(c.current.x - c.start.x, c.start.y- c.current.y).angle;
+        }
+        p = {...p,
+            x: c.current.x,
+            y: c.current.y,
+            t: 0,
+            angle: angle,
+        };
+    }
     return {...state,
-        controls: Click(state.controls, eState),
+        controls: c,
+        trail: p,
     };
 }
 
 export function DisplayTest(ctx: DrawContext, state:ITestState): void {
     ctx.clear();
     DisplayTitle(ctx, state.title);
+
+    DisplayParticleTrail(ctx, state.trail);
+
     let y: number = 100;
     state.errors.forEach(e => { DrawText(ctx, 100, y, e); y+=15;});
 

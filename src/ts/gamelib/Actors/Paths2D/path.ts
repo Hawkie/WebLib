@@ -1,4 +1,5 @@
 import { ICoordinate } from "../../DataTypes/Coordinate";
+import { Transforms } from "../../Physics/Transforms";
 
 export interface ITime {
     t: number;
@@ -22,7 +23,15 @@ export function circular(t: number, amp: number, freq: number): ICoordinate {
 
 export function sine(t: number, amp: number, freq: number): ICoordinate {
     return {
-        x: amp * t * freq,
+        x: t,
         y: amp * Math.sin(t * freq)
+    };
+}
+
+export function line(t: number, angle: number, speed: number): ICoordinate {
+    let c: ICoordinate = Transforms.VectorToCartesian(angle, 1);
+    return {
+        x: c.x * t * speed,
+        y: c.y * t * speed,
     };
 }

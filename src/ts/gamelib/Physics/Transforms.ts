@@ -42,8 +42,8 @@ export function RotateCoordinates(points: ReadonlyArray<Coordinate>, degrees: nu
 // for angle of 270 we think left on screen = negative x values
 export function VectorToCartesian(degrees: number, length: number): ICoordinate {
     let radians: number = degrees / 180 * Math.PI;
-    let x: number = Math.sin(radians) * length; // sin 0 = 0
-    let y: number = Math.cos(radians) * -length; // cos 0 = 1
+    let x: number = Math.sin(radians) * length; // sin 0 = 0, sin 90 = 1
+    let y: number = Math.cos(radians) * -length; // cos 0 = 1, cos 90 = 0
     return new Coordinate(x, y);
 }
 
