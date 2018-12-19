@@ -37,14 +37,11 @@ export class Assets {
 
     public aCtx: AudioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-    public gMap:Map<string, IImageElement> = new Map<string,IImageElement>();
-
     public readonly width:number = 480;
     public readonly height:number = 512;
 
     public static assets: Assets = new Assets();
 }
-
 
 
 let init: boolean = false;
