@@ -2,7 +2,7 @@ import { Canvas } from "../Elements/Canvas";
 import { EventProcessor, IEventState } from "../Events/EventProcessor";
 import { IStateProcessor } from "../State/StateProcessor";
 import { DrawContext } from "../Views/DrawContext";
-import { IAssets } from "../../game-test/assets";
+import { IAssets } from "../../../../examples/game-test/src/ts/assets";
 
 
 export class EventLoop<TState> {

@@ -1,8 +1,8 @@
-import { Game } from "../gamelib/1Common/Game";
-import { IStateProcessor } from "../gamelib/State/StateProcessor";
-import { CreateTestStateMachine, ITestState, CreateTestState } from "../game-test/CreateTestStateMachine";
-import { CreateTestHtml } from "../game-test/CreateHtml";
-import { Canvas } from "../gamelib/Elements/Canvas";
+import { Game } from "../../../../src/ts/gamelib/1Common/Game";
+import { IStateProcessor } from "../../../../src/ts/gamelib/State/StateProcessor";
+import { CreateTestStateMachine, ITestState, CreateTestState } from "./CreateTestStateMachine";
+import { CreateTestHtml } from "./CreateHtml";
+import { Canvas } from "../../../../src/ts/gamelib/Elements/Canvas";
 import { CreateTestAssets } from "./assets";
 
 

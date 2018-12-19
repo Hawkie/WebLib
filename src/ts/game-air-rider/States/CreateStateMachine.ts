@@ -4,7 +4,7 @@ import { IStateProcessor } from "../../gamelib/State/StateProcessor";
 import { CreateGameStateLandExplorer, Sounds, Display,
     InputGameState, Update, ILandExplorerGameState } from "./LandExplorer/LandExplorerGameState";
 import { IState } from "../../gamelib/State/StateMachine";
-import { EmptyUpdate, EmptyInput } from "../../game-test/CreateTestStateMachine";
+import { EmptyUpdate, EmptyInput } from "../../../../examples/game-test/src/ts/CreateTestStateMachine";
 import { IHelp, CreateHelp, DisplayHelp, InputHelp, CreateHelpControls, CreateHintHelp } from "./Help/HelpState";
 
 

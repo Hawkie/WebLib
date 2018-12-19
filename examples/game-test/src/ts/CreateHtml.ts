@@ -1,5 +1,5 @@
-import { CreateButton } from "../gamelib/Elements/Button";
-import { Canvas } from "../gamelib/Elements/Canvas";
+import { CreateButton } from "../../../../src/ts/gamelib/Elements/Button";
+import { Canvas } from "../../../../src/ts/gamelib/Elements/Canvas";
 import { Assets } from "./assets";
 
 export function CreateTestHtml(document: Document): Canvas {

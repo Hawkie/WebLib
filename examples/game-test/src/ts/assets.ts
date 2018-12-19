@@ -1,5 +1,5 @@
-import { IImageElement, ImageElement } from "../gamelib/Elements/ImageElement";
-import { IAudioElement, AudioElement } from "../gamelib/Elements/AudioElement";
+import { IImageElement, ImageElement } from "../../../../src/ts/gamelib/Elements/ImageElement";
+import { IAudioElement, AudioElement } from "../../../../src/ts/gamelib/Elements/AudioElement";
 
 
 export interface IAssets {

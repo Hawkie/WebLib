@@ -1,13 +1,13 @@
-import { IStateProcessor } from "../gamelib/State/StateProcessor";
-import { IEventState, CreateEventState, Click } from "../gamelib/Events/EventProcessor";
-import { DrawContext } from "../gamelib/Views/DrawContext";
-import { DrawText } from "../gamelib/Views/TextView";
-import { DrawNumber } from "../gamelib/Views/ValueView";
-import { DrawCircle } from "../gamelib/Views/CircleView";
-import { DrawLine } from "../gamelib/Views/LineView";
-import { DrawRectangle } from "../gamelib/Views/RectangleView";
+import { IStateProcessor } from "../../../../src/ts/gamelib/State/StateProcessor";
+import { IEventState, CreateEventState, Click } from "../../../../src/ts/gamelib/Events/EventProcessor";
+import { DrawContext } from "../../../../src/ts/gamelib/Views/DrawContext";
+import { DrawText } from "../../../../src/ts/gamelib/Views/TextView";
+import { DrawNumber } from "../../../../src/ts/gamelib/Views/ValueView";
+import { DrawCircle } from "../../../../src/ts/gamelib/Views/CircleView";
+import { DrawLine } from "../../../../src/ts/gamelib/Views/LineView";
+import { DrawRectangle } from "../../../../src/ts/gamelib/Views/RectangleView";
 import { Assets } from "./assets";
-import { DisplayTitle } from "../gamelib/Components/TitleComponent";
+import { DisplayTitle } from "../../../../src/ts/gamelib/Components/TitleComponent";
 
 export interface ITestState {
     title: string;
