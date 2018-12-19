@@ -1,8 +1,8 @@
-﻿import { Coordinate, ICoordinate } from "../../gamelib/DataTypes/Coordinate";
-import { Transforms } from "../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { DrawPolyGraphic } from "../../gamelib/Views/PolyGraphic";
-import { IShape } from "../../gamelib/DataTypes/Shape";
+﻿import { Coordinate, ICoordinate } from "../../../../../src/ts/gamelib/DataTypes/Coordinate";
+import { Transforms } from "../../../../../src/ts/gamelib/Physics/Transforms";
+import { DrawContext } from "../../../../../src/ts/gamelib/Views/DrawContext";
+import { DrawPolyGraphic } from "../../../../../src/ts/gamelib/Views/PolyGraphic";
+import { IShape } from "../../../../../src/ts/gamelib/DataTypes/Shape";
 
 import { Assets } from "../Assets/assets";
 

@@ -1,7 +1,7 @@
-import { IParticleField, FieldGenRemMove } from "./FieldComponent";
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { DisplayField } from "../../gamelib/Components/ParticleFieldComponent";
-import { Transforms } from "../../gamelib/Physics/Transforms";
+import { IParticleField, FieldGenRemMove } from "../../../../../src/ts/gamelib/Components/FieldComponent";
+import { DrawContext } from "../../../../../src/ts/gamelib/Views/DrawContext";
+import { DisplayField } from "../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
+import { Transforms } from "../../../../../src/ts/gamelib/Physics/Transforms";
 
 
 export interface ISplat {

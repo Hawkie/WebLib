@@ -1,6 +1,5 @@
-import { Keys } from "../../gamelib/Events/KeyHandler";
-import { IEventState } from "../../gamelib/Events/EventProcessor";
-import { Game } from "../../gamelib/1Common/Game";
+import { Keys } from "../../../../../src/ts/gamelib/Events/KeyHandler";
+import { IEventState } from "../../../../../src/ts/gamelib/Events/EventProcessor";
 import { Assets } from "../Assets/assets";
 
 

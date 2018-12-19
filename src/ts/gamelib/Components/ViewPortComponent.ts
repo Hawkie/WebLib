@@ -1,7 +1,6 @@
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { Game } from "../../gamelib/1Common/Game";
-import { centreZoom } from "../../gamelib/Actors/Helpers/zoom";
-import { Assets } from "../Assets/assets";
+import { DrawContext } from "../Views/DrawContext";
+import { centreZoom } from "../Actors/Helpers/zoom";
+import { Assets } from "../../../../examples/game-air-rider/src/ts/Assets/assets";
 
 export interface IView {
     zoomSpeed: number;

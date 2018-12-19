@@ -1,10 +1,10 @@
-import { IParticleField, FieldGenRemMove } from "../FieldComponent";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DisplayField } from "../../../gamelib/Components/ParticleFieldComponent";
-import { DrawFlash } from "../../../gamelib/Views/ScreenFlashView";
-import { IncreaseCounter, Toggle, AddElapsedTime } from "../../../gamelib/Actors/Helpers/Counter";
-import { Game } from "../../../gamelib/1Common/Game";
+import { IParticleField, FieldGenRemMove } from "../../../../../../src/ts/gamelib/Components/FieldComponent";
+import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
+import { DisplayField } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
+import { DrawFlash } from "../../../../../../src/ts/gamelib/Views/ScreenFlashView";
+import { IncreaseCounter, Toggle, AddElapsedTime } from "../../../../../../src/ts/gamelib/Actors/Helpers/Counter";
+import { Game } from "../../../../../../src/ts/gamelib/1Common/Game";
 
 export interface IExplosion {
     readonly explosionParticleField: IParticleField;

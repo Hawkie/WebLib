@@ -1,5 +1,4 @@
-import { Canvas } from "../../gamelib/Elements/Canvas";
-import { Game } from "../../gamelib/1Common/Game";
+import { Canvas } from "../../../../../src/ts/gamelib/Elements/Canvas";
 import { Assets } from "../Assets/assets";
 
 export interface IPage {

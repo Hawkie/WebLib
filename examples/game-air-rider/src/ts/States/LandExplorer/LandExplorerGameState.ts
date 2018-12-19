@@ -1,18 +1,17 @@
-﻿import { DrawContext} from "../../../gamelib/Views/DrawContext";
-import { EventProcessor, IEventState } from "../../../gamelib/Events/EventProcessor";
+﻿import { DrawContext} from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { EventProcessor, IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
 import { CreateLandExplorer, ILandExplorerState,
     StateCopyToUpdate, DisplayLandExplorer, LandExplorerSounds, Tests, InputState } from "./LandExplorerState";
 import { CreateShip, IShip, DisplayShip } from "../../Components/Ship/ShipComponent";
-import { ICoordinate } from "../../../gamelib/DataTypes/Coordinate";
+import { ICoordinate } from "../../../../../../src/ts/gamelib/DataTypes/Coordinate";
 import { initSurface, ISurface, ISurfaceGeneration, TestFlat } from "../../Components/SurfaceComponent";
-import { IParticleField, CreateField } from "../../Components/FieldComponent";
-import { DisplayTitle } from "../../../gamelib/Components/TitleComponent";
+import { IParticleField, CreateField } from "../../../../../../src/ts/gamelib/Components/FieldComponent";
+import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
 import { MoveShip } from "../../Components/Ship/MovementComponent";
-import { CreateView, IView, DisplayView, Zoom } from "../../Components/ViewPortComponent";
-import { Game } from "../../../gamelib/1Common/Game";
-import { DrawNumber } from "../../../gamelib/Views/ValueView";
-import { DrawText } from "../../../gamelib/Views/TextView";
-import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
+import { CreateView, IView, DisplayView, Zoom } from "../../../../../../src/ts/gamelib/Components/ViewPortComponent";
+import { DrawNumber } from "../../../../../../src/ts/gamelib/Views/ValueView";
+import { DrawText } from "../../../../../../src/ts/gamelib/Views/TextView";
+import { DrawGraphic } from "../../../../../../src/ts/gamelib/Views/GraphicView";
 import { Assets } from "../../Assets/assets";
 
 export interface ILandExplorerGameState {

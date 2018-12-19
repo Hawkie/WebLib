@@ -1,11 +1,11 @@
 
-import { IMenuState, CreateMenuState, SoundMenuState, DisplayMenuState, InputMenuState, UpdateMenuState } from "./MenuState/MenuState";
-import { IStateProcessor } from "../../gamelib/State/StateProcessor";
+import { IMenuState, CreateMenuState, SoundMenuState, DisplayMenuState, InputMenuState, UpdateMenuState } from "./MenuState";
+import { IStateProcessor } from "../../../../../src/ts/gamelib/State/StateProcessor";
 import { CreateGameStateLandExplorer, Sounds, Display,
     InputGameState, Update, ILandExplorerGameState } from "./LandExplorer/LandExplorerGameState";
-import { IState } from "../../gamelib/State/StateMachine";
-import { EmptyUpdate, EmptyInput } from "../../../../examples/game-test/src/ts/CreateTestStateMachine";
-import { IHelp, CreateHelp, DisplayHelp, InputHelp, CreateHelpControls, CreateHintHelp } from "./Help/HelpState";
+import { IState } from "../../../../../src/ts/gamelib/State/StateMachine";
+import { EmptyUpdate, EmptyInput } from "../../../../game-test/src/ts/CreateTestStateMachine";
+import { IHelp, CreateHelp, DisplayHelp, InputHelp, CreateHelpControls, CreateHintHelp } from "./HelpState";
 
 
 export function CreateState(): IState {

@@ -2,7 +2,7 @@
 import { OnTouch } from "./TouchHandler";
 import { OnMouse } from "./MouseHandler";
 import { ICoordinate } from "../DataTypes/Coordinate";
-import { IAssets } from "../../game-air-rider/Assets/assets";
+import { IAssets } from "../../../../examples/game-air-rider/src/ts/Assets/assets";
 
 export interface IEventState {
     readonly soundInit: boolean;

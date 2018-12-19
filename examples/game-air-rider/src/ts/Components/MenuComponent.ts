@@ -1,8 +1,8 @@
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { DrawText } from "../../gamelib/Views/TextView";
-import { IAudioElement } from "../../gamelib/Elements/AudioElement";
-import { IEventState } from "../../gamelib/Events/EventProcessor";
-import { Keys } from "../../gamelib/Events/KeyHandler";
+import { DrawContext } from "../../../../../src/ts/gamelib/Views/DrawContext";
+import { DrawText } from "../../../../../src/ts/gamelib/Views/TextView";
+import { IAudioElement } from "../../../../../src/ts/gamelib/Elements/AudioElement";
+import { IEventState } from "../../../../../src/ts/gamelib/Events/EventProcessor";
+import { Keys } from "../../../../../src/ts/gamelib/Events/KeyHandler";
 
 // immutable data object
 export interface IMenuComponent {

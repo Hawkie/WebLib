@@ -1,13 +1,13 @@
-import { MoveWithVelocity } from "../../../gamelib/Actors/Movers";
-import { Coordinate } from "../../../gamelib/DataTypes/Coordinate";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { IParticle, DisplayField } from "../../../gamelib/Components/ParticleFieldComponent";
-import { FilterParticles } from "../../../gamelib/Actors/FieldParticleRemover";
-import { AccelerateWithForces } from "../../../gamelib/Actors/Accelerator";
-import { IVector } from "../../../gamelib/DataTypes/Vector";
-import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
-import { Game } from "../../../gamelib/1Common/Game";
+import { MoveWithVelocity } from "../../../../../../src/ts/gamelib/Actors/Movers";
+import { Coordinate } from "../../../../../../src/ts/gamelib/DataTypes/Coordinate";
+import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
+import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { IParticle, DisplayField } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
+import { FilterParticles } from "../../../../../../src/ts/gamelib/Actors/FieldParticleRemover";
+import { AccelerateWithForces } from "../../../../../../src/ts/gamelib/Actors/Accelerator";
+import { IVector } from "../../../../../../src/ts/gamelib/DataTypes/Vector";
+import { DrawGraphic } from "../../../../../../src/ts/gamelib/Views/GraphicView";
+import { Game } from "../../../../../../src/ts/gamelib/1Common/Game";
 import { Assets } from "../../Assets/assets";
 
 export interface IWeapon {

@@ -1,7 +1,7 @@
 import { EventLoop } from "./EventLoop";
 import { IStateProcessor } from "../State/StateProcessor";
 import { Canvas } from "../Elements/Canvas";
-import { IAssets } from "../../game-air-rider/Assets/assets";
+import { IAssets } from "../../../../examples/game-air-rider/src/ts/Assets/assets";
 
 export class Game<TState> {
 

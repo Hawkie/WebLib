@@ -1,17 +1,15 @@
-import { IMenuComponent, InputMenu, SoundMenu, DisplayMenu } from "../../Components/MenuComponent";
-import { IParticleField, CreateField } from "../../Components/FieldComponent";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { DisplayTitle, DisplayText } from "../../../gamelib/Components/TitleComponent";
-import { DisplayField, FieldGenMove } from "../../../gamelib/Components/ParticleFieldComponent";
-import { IEventState, CreateEventState, Click } from "../../../gamelib/Events/EventProcessor";
-import { IStateProcessor } from "../../../gamelib/State/StateProcessor";
-import { Game } from "../../../gamelib/1Common/Game";
-import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
-import { DrawRectangle } from "../../../gamelib/Views/RectangleView";
-import { DrawCircle } from "../../../gamelib/Views/CircleView";
-import { DrawText } from "../../../gamelib/Views/TextView";
-import { Assets } from "../../Assets/assets";
+import { IMenuComponent, InputMenu, SoundMenu, DisplayMenu } from "../Components/MenuComponent";
+import { IParticleField, CreateField } from "../../../../../src/ts/gamelib/Components/FieldComponent";
+import { Transforms } from "../../../../../src/ts/gamelib/Physics/Transforms";
+import { DrawContext } from "../../../../../src/ts/gamelib/Views/DrawContext";
+import { DisplayTitle, DisplayText } from "../../../../../src/ts/gamelib/Components/TitleComponent";
+import { DisplayField, FieldGenMove } from "../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
+import { IEventState, CreateEventState, Click } from "../../../../../src/ts/gamelib/Events/EventProcessor";
+import { IStateProcessor } from "../../../../../src/ts/gamelib/State/StateProcessor";
+import { DrawGraphic } from "../../../../../src/ts/gamelib/Views/GraphicView";
+import { DrawCircle } from "../../../../../src/ts/gamelib/Views/CircleView";
+import { DrawText } from "../../../../../src/ts/gamelib/Views/TextView";
+import { Assets } from "../Assets/assets";
 
 export interface IMenuState {
     readonly title: string;

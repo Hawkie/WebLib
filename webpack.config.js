@@ -1,8 +1,11 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+const gamedir = 'examples/game-air-rider';
+
 module.exports = {
-    entry: path.join(__dirname, '/examples/game-test/src/ts/main.ts'),
+    // game: path.join(__dirname, 'examples/game-air-rider'),
+    entry: path.resolve(__dirname, gamedir + '/src/ts/main.ts'),
     mode: "development",
     devtool: 'inline-source-map',
     module: {
@@ -23,7 +26,7 @@ module.exports = {
     },
     plugins: [ new CopyWebpackPlugin([
         { from: 'src/html/index.html' },
-        { from: 'res', to: 'res/' },
+        { from: gamedir + '/res', to: 'res/' },
         { from: 'src/css', to: 'css/' }
       ])],
 };

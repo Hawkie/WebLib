@@ -1,6 +1,6 @@
-import { DrawCircle } from "../../gamelib/Views/CircleView";
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { MoveWithVelocity } from "../../gamelib/Actors/Movers";
+import { DrawCircle } from "../Views/CircleView";
+import { DrawContext } from "../Views/DrawContext";
+import { MoveWithVelocity } from "../Actors/Movers";
 
 export interface IBall {
     readonly x: number;

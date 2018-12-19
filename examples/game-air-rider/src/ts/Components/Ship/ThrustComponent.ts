@@ -1,8 +1,8 @@
-import { IParticleField, FieldGenRemMove } from "../FieldComponent";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { ICoordinate } from "../../../gamelib/DataTypes/Coordinate";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { DisplayField, FieldGenMove } from "../../../gamelib/Components/ParticleFieldComponent";
+import { IParticleField, FieldGenRemMove } from "../../../../../../src/ts/gamelib/Components/FieldComponent";
+import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
+import { ICoordinate } from "../../../../../../src/ts/gamelib/DataTypes/Coordinate";
+import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { DisplayField, FieldGenMove } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
 
 export interface IExhaust {
     readonly thrustOn: boolean;

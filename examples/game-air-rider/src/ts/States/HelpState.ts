@@ -1,10 +1,9 @@
-import { DisplayText, DisplayTitle } from "../../../gamelib/Components/TitleComponent";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { IEventState, Click, DownCheck } from "../../../gamelib/Events/EventProcessor";
-import { Keys } from "../../../gamelib/Events/KeyHandler";
-import { Game } from "../../../gamelib/1Common/Game";
-import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
-import { Assets } from "../../Assets/assets";
+import { DisplayText, DisplayTitle } from "../../../../../src/ts/gamelib/Components/TitleComponent";
+import { DrawContext } from "../../../../../src/ts/gamelib/Views/DrawContext";
+import { IEventState, Click, DownCheck } from "../../../../../src/ts/gamelib/Events/EventProcessor";
+import { Keys } from "../../../../../src/ts/gamelib/Events/KeyHandler";
+import { DrawGraphic } from "../../../../../src/ts/gamelib/Views/GraphicView";
+import { Assets } from "../Assets/assets";
 
 export interface IHelp {
     readonly title: string;

@@ -1,15 +1,15 @@
 import { IShip, CrashShip, DisplayShip, ShipCopyToUpdated,
     ShipSounds, LandShip, ShipCopyToStopBullet } from "../../Components/Ship/ShipComponent";
 import { ISurface, DisplaySurface, addSurface, TestFlat } from "../../Components/SurfaceComponent";
-import { IParticleField } from "../../Components/FieldComponent";
+import { IParticleField } from "../../../../../../src/ts/gamelib/Components/FieldComponent";
 import { IControls, InputControls, CreateControls } from "../../Components/ControlsComponent";
-import { IEventState, CreateEventState, Click } from "../../../gamelib/Events/EventProcessor";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { DisplayField, FieldGenMove, IParticle } from "../../../gamelib/Components/ParticleFieldComponent";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { IShapedLocation, ShapeCollisionDetector } from "../../../gamelib/Interactors/ShapeCollisionDetector";
+import { IEventState, CreateEventState, Click } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
+import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { DisplayField, FieldGenMove, IParticle } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
+import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
+import { IShapedLocation, ShapeCollisionDetector } from "../../../../../../src/ts/gamelib/Interactors/ShapeCollisionDetector";
 import { ISplat, CreateSplat, DisplaySplat, UpdateSplat, ResetSplat } from "../../Components/SplatComponent";
-import { DrawLine } from "../../../gamelib/Views/LineView";
+import { DrawLine } from "../../../../../../src/ts/gamelib/Views/LineView";
 import { Assets } from "../../Assets/assets";
 
 export interface ILandExplorerState {

@@ -1,10 +1,10 @@
-import { MoveWithVelocity, IMoveable } from "../../gamelib/Actors/Movers";
-import { DrawContext } from "../../gamelib/Views/DrawContext";
-import { DrawRectangle } from "../../gamelib/Views/RectangleView";
-import { IField, IParticle } from "../../gamelib/Components/ParticleFieldComponent";
-import { FieldGenerate } from "../../gamelib/Actors/FieldGenerator";
-import { FieldMoveParticlesWithVelocity, FieldAccParticlesWithGravity } from "../../gamelib/Actors/FieldMover";
-import { FieldRemoveParticle } from "../../gamelib/Actors/FieldParticleRemover";
+import { MoveWithVelocity, IMoveable } from "../Actors/Movers";
+import { DrawContext } from "../Views/DrawContext";
+import { DrawRectangle } from "../Views/RectangleView";
+import { IField, IParticle } from "./ParticleFieldComponent";
+import { FieldGenerate } from "../Actors/FieldGenerator";
+import { FieldMoveParticlesWithVelocity, FieldAccParticlesWithGravity } from "../Actors/FieldMover";
+import { FieldRemoveParticle } from "../Actors/FieldParticleRemover";
 
 
 export interface IParticleField extends IField<IParticle> {

@@ -1,8 +1,8 @@
-import { MoveWithVelocity } from "../../../gamelib/Actors/Movers";
-import { RotateShape, RotateAngle } from "../../../gamelib/Actors/Rotators";
+import { MoveWithVelocity } from "../../../../../../src/ts/gamelib/Actors/Movers";
+import { RotateShape, RotateAngle } from "../../../../../../src/ts/gamelib/Actors/Rotators";
 import { IShip } from "./ShipComponent";
-import { AccelerateWithForces } from "../../../gamelib/Actors/Accelerator";
-import { IVector, Vector } from "../../../gamelib/DataTypes/Vector";
+import { AccelerateWithForces } from "../../../../../../src/ts/gamelib/Actors/Accelerator";
+import { IVector, Vector } from "../../../../../../src/ts/gamelib/DataTypes/Vector";
 
 const maxHeight: number = 1000;
 const maxMass: number = 180;

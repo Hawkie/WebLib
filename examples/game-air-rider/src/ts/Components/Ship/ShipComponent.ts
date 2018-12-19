@@ -1,16 +1,16 @@
-import { Coordinate, ICoordinate } from "../../../gamelib/DataTypes/Coordinate";
-import { IShape, Shape } from "../../../gamelib/DataTypes/Shape";
-import { Transforms } from "../../../gamelib/Physics/Transforms";
-import { DrawContext } from "../../../gamelib/Views/DrawContext";
-import { DrawPoly } from "../../../gamelib/Views/PolyViews";
+import { Coordinate, ICoordinate } from "../../../../../../src/ts/gamelib/DataTypes/Coordinate";
+import { IShape, Shape } from "../../../../../../src/ts/gamelib/DataTypes/Shape";
+import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
+import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
+import { DrawPoly } from "../../../../../../src/ts/gamelib/Views/PolyViews";
 import { IControls } from "../ControlsComponent";
 import { IWeapon, PullTrigger, DisplayWeapon, CreateWeapon, RemoveBullet, StopBullet } from "./WeaponComponent";
 import { IExhaust, ExhaustCopyToUpdated, DisplayExhaust, CreateExhaust } from "./ThrustComponent";
 import { IExplosion, DisplayExplosion, CreateExplosion, UpdateExplosion } from "./ExplosionComponent";
-import { Game } from "../../../gamelib/1Common/Game";
-import { DrawPolyGraphic } from "../../../gamelib/Views/PolyGraphic";
-import { DrawGraphic } from "../../../gamelib/Views/GraphicView";
-import { DrawText } from "../../../gamelib/Views/TextView";
+import { Game } from "../../../../../../src/ts/gamelib/1Common/Game";
+import { DrawPolyGraphic } from "../../../../../../src/ts/gamelib/Views/PolyGraphic";
+import { DrawGraphic } from "../../../../../../src/ts/gamelib/Views/GraphicView";
+import { DrawText } from "../../../../../../src/ts/gamelib/Views/TextView";
 import { Assets } from "../../Assets/assets";
 
 export interface IPhysics {
