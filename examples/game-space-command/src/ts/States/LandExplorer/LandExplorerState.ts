@@ -1,13 +1,13 @@
-import { IShip, CreateShip, CrashShip, DisplayShip, ShipCopyToUpdated, ShipSounds } from "../../Components/Ship/ShipComponent";
+import { IShip, CreateShip, CrashShip, DisplayShip, ShipCopyToUpdated, ShipSounds, LandShip } from "../../Components/Ship/ShipComponent";
 import { ISurface, initSurface, DisplaySurface, addSurface } from "../../Components/SurfaceComponent";
 import { IParticleField, CreateField } from "../../Components/FieldComponent";
 import { IAsteroidsControls, InputAsteroidControls, CreateControls } from "../../Components/AsteroidsControlsComponent";
 import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
 import { DisplayField, FieldGenMove } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
 import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
-import { Game } from "../../../../../../src/ts/gamelib/1Common/Game";
 import { AsteroidAssets } from "../../Assets/assets";
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
+import { TestFlat } from "../../../../../game-air-rider/src/ts/Components/SurfaceComponent";
 
 
 export interface ILandExplorerState {
@@ -53,7 +53,7 @@ export function StateCopyToUpdate(state: ILandExplorerState, timeModifier: numbe
                 size: 1,
             };
         }),
-        surface: addSurface(state.surface, state.ship.x, AsteroidAssets.assets.width, state.surface.surfaceGenerator)
+        surface: addSurface(state.surface, state.ship.x, 1, AsteroidAssets.assets.width, state.surface.surfaceGenerator)
     };
 }
 
@@ -64,10 +64,29 @@ export function StateCopyToControls(state: ILandExplorerState, eState: IEventSta
 }
 
 export function TestPlayerHit(state: ILandExplorerState): ILandExplorerState {
-    if (Transforms.hasPoint(state.surface.points.map(p => p), { x: 0, y: 0 }, state.ship)) {
+    if (Transforms.hasPoint(state.surface.points.map(p => p), { x: 0, y: -5 }, state.ship)) {
+        if (TestLand(state.ship, state.surface)) {
+            return {...state,
+                ship: LandShip(state.ship),
+            };
+        } else {
             return {...state,
                 ship: CrashShip(state.ship, 0, 0)
-        };
+            };
+        }
     }
     return state;
+}
+
+function TestLand(ship: IShip, surface: ISurface): boolean {
+    // velocity < 10
+    if (ship.Vy < 10) {
+        // ship angle < 5 degrees either side
+        if (ship.angle < 5 && ship.angle > -5) {
+            // check flat bit of land
+            return TestFlat(surface, ship.x);
+        }
+    }
+    console.log("Too fast: " + ship.Vy);
+    return false;
 }

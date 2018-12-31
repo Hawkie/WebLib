@@ -1,7 +1,7 @@
 ﻿import { ILandExplorerState, CreateLandExplorer, StateCopyToUpdate,
     TestPlayerHit, LandExplorerSounds, StateCopyToControls, DisplayLandExplorer } from "./LandExplorerState";
 import { IView, CreateView, Zoom, DisplayView } from "../../Components/ViewPortComponent";
-import { ISurfaceGeneration, initSurface, ISurface } from "../../Components/SurfaceComponent";
+import { ISurfaceGeneration, initSurface, ISurface, TestFlat } from "../../Components/SurfaceComponent";
 import { IShip, CreateShip } from "../../Components/Ship/ShipComponent";
 import { AsteroidAssets } from "../../Assets/assets";
 import { MoveShip } from "../../Components/Ship/MovementComponent";
@@ -10,6 +10,7 @@ import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext"
 import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
 import { IParticleField, CreateField } from "../../Components/FieldComponent";
+import { DrawText } from "../../../../../../src/ts/gamelib/Views/TextView";
 
 export interface ILandExplorerGameState {
     landState: ILandExplorerState;
@@ -21,6 +22,7 @@ export function CreateGameStateLandExplorer(): ILandExplorerGameState {
         resolution: 5,
         upper: 5,
         lower: -5,
+        flatChance: 0.5,
     };
     let ship: IShip = CreateShip(AsteroidAssets.assets.width/2, AsteroidAssets.assets.height/2, 10, false,
         MoveShip);
@@ -38,101 +40,6 @@ export function CreateGameStateLandExplorer(): ILandExplorerGameState {
         view: view,
     };
 }
-
-
-
-        // scene objects
-        // this.landingPad = LandExplorerState.createLandingPadObject(this.surface);
-        // this.ballObject = LandExplorerState.createBallObject(this.surface);
-        // this.sceneObjects.push(this.surface, this.landingPad, this.ballObject,
-
-        // gui Objects
-        // this.velocityText = new TextObject("", new Coordinate(325, 50), "monospace", 12);
-        // this.wind = LandExplorerState.createWindDirectionIndicator(new Coordinate(450, 50));
-        // this.guiObjects.push(this.velocityText, this.wind, this.player.explosionController.screenFlash);
-
-        // let shipLandingPadDetector: IInteractor = new ObjectCollisionDetector(this.landingPad.model,
-        // this.player.chassisObj.model.physics, this.playerLandingPadCollision.bind(this));
-        // let windEffect: IInteractor = new Interactor(this.wind.model, this.player, this.windEffectCallback);
-        // shipLandingPadDetector, windEffect];
-
-
-    // windEffectCallback(lastTestModifier: number, wind: WindModel, controller: SpaceShipController) {
-    //     controller.chassisObj.model.physics.velX += wind.physics.value * lastTestModifier;
-    // }
-
-    // playerLandingPadCollision() {
-    //     if (this.player.chassisObj.model.physics.velY > 0) {
-    //         console.log("Land velocity: " + this.player.chassisObj.model.physics.velY);
-
-    //         if (this.player.chassisObj.model.physics.velY > 20) {
-    //             this.player.crash();
-    //         }
-
-    //         this.player.chassisObj.model.physics.velY = 0;
-    //         this.player.chassisObj.model.physics.velX = 0;
-    //     }
-    // }
-
-    // static createLandingPadObject(surface: SingleGameObject): void {
-    //     let placeIndex = Transforms.random(0, 50);
-    //     let xy = surface.model.shape.points[placeIndex];
-    //     let padModel = new LandingPadModel(new Coordinate(xy.x + surface.model.physics.location.x,
-    //         xy.y + surface.model.physics.location.y));
-    //     let padView: IView = new PolyView(() => { return {
-    //         x: padModel.physics.location.x,
-    //         y: padModel.physics.location.y,
-    //         shape: padModel.shape,
-    //     };});
-    //     let obj = new SingleGameObject(padModel, [], [padView]);
-    //     return obj;
-    // }
-
-    // static createBallObject(surface: SingleGameObject) {
-    //     let placeIndex = Transforms.random(0, 50);
-    //     let xy = surface.model.shape.points[placeIndex];
-    //     let ballModel: IBallObject = {
-    //         x: xy.x + surface.model.physics.location.x,
-    //         y: xy.y + surface.model.physics.location.y-8,
-    //         vx: 0,
-    //         vy: 0,
-    //         r: 8,
-    //         mass: 1,
-    //     };
-    //     let ballView: IView = new CircleView(() => {
-    //         return {
-    //             x: ballModel.x,
-    //             y: ballModel.y,
-    //             r: ballModel.r,
-    //         };
-    //     });
-    //     // not needed at this stage
-    //     let mover: MoveConstVelocity = new MoveConstVelocity(
-    //         ()=> {
-    //             return {
-    //                 vx: ballModel.Vx,
-    //                 vy: ballModel.Vy,
-    //             };
-    //         }, (mOut: IMoveOut)=> {
-    //             ballModel.x += mOut.dx;
-    //             ballModel.y += mOut.dy;
-    //         });
-    //     let obj = new SingleGameObject(ballModel, [mover], [ballView]);
-    //     return obj;
-    // }
-
-    // static createWindDirectionIndicator(location: Coordinate): SingleGameObject {
-    //     let model: WindModel = new WindModel(location);
-    //     let windGenerator: IActor = new WindGenerator(model.physics, model.shape);
-    //     let viewArrow: IView = new PolyView(() => { return {
-    //         x: model.physics.location.x,
-    //         y: model.physics.location.y,
-    //         shape: model.shape,
-    //     };});
-    //     let viewText: IView = new ValueView(model.physics, "{0} mph", "monospace", 12);
-    //     let obj = new SingleGameObject(model, [windGenerator], [viewArrow, viewText]);
-    //     return obj;
-    // }
 
 export function Update(state: ILandExplorerGameState, timeModifier: number): ILandExplorerGameState {
     let newState: ILandExplorerState = state.landState;
@@ -162,4 +69,16 @@ export function Display(ctx: DrawContext, state: ILandExplorerGameState): void {
     // objects not affected by movement. e.g GUI
     DisplayTitle(ctx, state.landState.title);
     DisplayView(ctx, state.view, state.landState.ship.x, state.landState.ship.y, state.landState, {displayState: DisplayLandExplorer});
+    if (state.landState.ship.landed) {
+        DrawText(ctx, 20, AsteroidAssets.assets.height-20, "Landed");
+    }
+    if (!TestFlat(state.landState.surface, state.landState.ship.x)) {
+        DrawText(ctx, 20, AsteroidAssets.assets.height-35, "Warning: Not Flat");
+    }
+    if (state.landState.ship.Vy > 10) {
+        DrawText(ctx, 20, AsteroidAssets.assets.height-50, "Warning: Too Fast");
+    }
+    if (!(state.landState.ship.angle < 5 && state.landState.ship.angle > -5)) {
+        DrawText(ctx, 20, AsteroidAssets.assets.height-65, "Warning: Not Aligned");
+    }
 }

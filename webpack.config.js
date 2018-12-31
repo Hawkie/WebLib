@@ -1,7 +1,7 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const gamedir = 'examples/game-test';
+const gamedir = 'examples/game-space-command';
 
 module.exports = {
     // game: path.join(__dirname, 'examples/game-air-rider'),

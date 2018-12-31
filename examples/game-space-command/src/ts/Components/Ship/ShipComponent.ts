@@ -52,6 +52,7 @@ export interface IShip {
     readonly maxForwardForce: number;
     readonly maxRotationalSpeed: number;
     readonly crashed: boolean;
+    readonly landed: boolean;
     readonly trigger1: boolean;
     readonly weapon1: IWeapon;
     readonly exhaust: IExhaust;
@@ -97,6 +98,7 @@ export function CreateShip(x: number, y: number,
         maxForwardForce: 16,
         maxRotationalSpeed: 64,
         crashed: false,
+        landed: false,
         trigger1: false,
         weapon1: CreateWeapon(0.5, 128),
         exhaust: CreateExhaust(),
@@ -177,6 +179,14 @@ export function CrashShip(ship: IShip, Vx: number, Vy: number): IShip {
         crashed: true,
         Vx: Vx,
         Vy: Vy,
+    };
+}
+
+export function LandShip(ship: IShip): IShip {
+    return {...ship,
+        landed: true,
+        Vx: 0,
+        Vy: 0
     };
 }
 

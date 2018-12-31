@@ -1,0 +1,10 @@
+ship land
+ship gravity (flexible)
+ship graphics
+ship collision to ground
+landing zone points?
+
+kuiper belt
+2D space explorer map
+
+sound/state for explosion/playonce
