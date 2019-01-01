@@ -4,7 +4,7 @@ import { IView, CreateView, Zoom, DisplayView } from "../../Components/ViewPortC
 import { ISurfaceGeneration, initSurface, ISurface, TestFlat, PopSurfaceBuffer } from "../../Components/SurfaceComponent";
 import { IShip, CreateShip } from "../../Components/Ship/ShipComponent";
 import { AsteroidAssets } from "../../Assets/assets";
-import { MoveShip } from "../../Components/Ship/MovementComponent";
+import { MoveShip, TestLandingSpeed } from "../../Components/Ship/MovementComponent";
 import { ICoordinate } from "../../../../../../src/ts/gamelib/DataTypes/Coordinate";
 import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
 import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
@@ -78,7 +78,7 @@ export function Display(ctx: DrawContext, state: ILandExplorerGameState): void {
     if (!TestFlat(PopSurfaceBuffer(state.landState.surface), state.landState.ship.x)) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-35, "Warning: Not Flat");
     }
-    if (state.landState.ship.Vy > 10) {
+    if (!TestLandingSpeed(state.landState.ship)) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-50, "Warning: Too Fast");
     }
     if (!VerticallyAligned(state.landState.ship.angle)) {

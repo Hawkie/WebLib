@@ -8,6 +8,7 @@ import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms"
 import { AsteroidAssets } from "../../Assets/assets";
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
 import { VerticallyAligned } from "../../../../../../src/ts/gamelib/Actors/Helpers/Angle";
+import { TestLandingSpeed } from "../../Components/Ship/MovementComponent";
 
 
 export interface ILandExplorerState {
@@ -79,8 +80,8 @@ export function TestPlayerHit(state: ILandExplorerState): ILandExplorerState {
 }
 
 function TestLand(ship: IShip, surface: ISurface): boolean {
-    // velocity < 10
-    if (ship.Vy < 10) {
+    // down velocity < 10 and sideways velocity < 10
+    if (TestLandingSpeed(ship)) {
         // ship angle < 5 degrees either side
         if (VerticallyAligned(ship.angle)) {
             // check flat bit of land

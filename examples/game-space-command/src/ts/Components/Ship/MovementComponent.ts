@@ -26,3 +26,10 @@ export function MoveAttachedShip(ship: IShip, timeModifier: number): IShip {
     newShip = RotateShape(timeModifier, newShip, newShip.spin);
     return newShip;
 }
+
+export function TestLandingSpeed(ship: IShip): boolean {
+    if (ship.Vy < 10 && Math.abs(ship.Vx) < 10 ) {
+        return true;
+    }
+    return false;
+}
