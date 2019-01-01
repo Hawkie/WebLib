@@ -1,5 +1,5 @@
 import { IShip, CreateShip, CrashShip, DisplayShip, ShipCopyToUpdated, ShipSounds, LandShip } from "../../Components/Ship/ShipComponent";
-import { ISurface, initSurface, DisplaySurface, addSurface } from "../../Components/SurfaceComponent";
+import { ISurface, initSurface, DisplaySurface, addSurface, PopSurfaceBuffer, TestFlat } from "../../Components/SurfaceComponent";
 import { IParticleField, CreateField } from "../../Components/FieldComponent";
 import { IAsteroidsControls, InputAsteroidControls, CreateControls } from "../../Components/AsteroidsControlsComponent";
 import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
@@ -7,7 +7,7 @@ import { DisplayField, FieldGenMove } from "../../../../../../src/ts/gamelib/Com
 import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
 import { AsteroidAssets } from "../../Assets/assets";
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
-import { TestFlat } from "../../../../../game-air-rider/src/ts/Components/SurfaceComponent";
+import { VerticallyAligned } from "../../../../../../src/ts/gamelib/Actors/Helpers/Angle";
 
 
 export interface ILandExplorerState {
@@ -82,11 +82,11 @@ function TestLand(ship: IShip, surface: ISurface): boolean {
     // velocity < 10
     if (ship.Vy < 10) {
         // ship angle < 5 degrees either side
-        if (ship.angle < 5 && ship.angle > -5) {
+        if (VerticallyAligned(ship.angle)) {
             // check flat bit of land
-            return TestFlat(surface, ship.x);
+            return TestFlat(PopSurfaceBuffer(surface), ship.x);
         }
     }
-    console.log("Too fast: " + ship.Vy);
     return false;
 }
+

@@ -71,7 +71,7 @@ export function addSurface(surface: ISurface,
         newPoints.shift();
         var first: Coordinate = newPoints[0];
         for (let l: number = 0; toAddLeft < l; l--) {
-            first = generatePoint(first.x + inputs.resolution, first.y, inputs);
+            first = generatePoint(first.x - inputs.resolution, first.y, inputs);
             newPoints.unshift(first);
             addedLeft++;
         }
@@ -102,12 +102,15 @@ export function addSurface(surface: ISurface,
     };
 }
 
+export function PopSurfaceBuffer(surface: ISurface): ISurface {
+    return {...surface,
+        points: surface.points.slice(1, surface.points.length-1)
+    };
+}
+
 export function TestFlat(surface: ISurface,
     x: number, range: number = 3): boolean {
-    let shipIndex: number = x / surface.surfaceGenerator.resolution;
-    shipIndex = Math.round(shipIndex);
-    // base point and addedLeft
-    shipIndex = shipIndex - surface.addedLeft + 1;
+    const shipIndex:number = FindIndex(surface, x);
     let height: number = surface.points[shipIndex].y;
     // check range of points either side
     for (let i:number = 0; i<range;i++) {
@@ -118,5 +121,12 @@ export function TestFlat(surface: ISurface,
         }
     }
     return true;
+}
+
+export function FindIndex(surface: ISurface, x: number): number {
+    let shipIndex: number = x / surface.surfaceGenerator.resolution;
+    shipIndex = Math.round(shipIndex);
+    // base point and addedLeft
+    return shipIndex + surface.addedLeft;
 }
 

@@ -1,7 +1,7 @@
 ﻿import { ILandExplorerState, CreateLandExplorer, StateCopyToUpdate,
     TestPlayerHit, LandExplorerSounds, StateCopyToControls, DisplayLandExplorer } from "./LandExplorerState";
 import { IView, CreateView, Zoom, DisplayView } from "../../Components/ViewPortComponent";
-import { ISurfaceGeneration, initSurface, ISurface, TestFlat } from "../../Components/SurfaceComponent";
+import { ISurfaceGeneration, initSurface, ISurface, TestFlat, PopSurfaceBuffer } from "../../Components/SurfaceComponent";
 import { IShip, CreateShip } from "../../Components/Ship/ShipComponent";
 import { AsteroidAssets } from "../../Assets/assets";
 import { MoveShip } from "../../Components/Ship/MovementComponent";
@@ -11,6 +11,7 @@ import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleC
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
 import { IParticleField, CreateField } from "../../Components/FieldComponent";
 import { DrawText } from "../../../../../../src/ts/gamelib/Views/TextView";
+import { VerticallyAligned } from "../../../../../../src/ts/gamelib/Actors/Helpers/Angle";
 
 export interface ILandExplorerGameState {
     landState: ILandExplorerState;
@@ -69,16 +70,18 @@ export function Display(ctx: DrawContext, state: ILandExplorerGameState): void {
     // objects not affected by movement. e.g GUI
     DisplayTitle(ctx, state.landState.title);
     DisplayView(ctx, state.view, state.landState.ship.x, state.landState.ship.y, state.landState, {displayState: DisplayLandExplorer});
+    DrawText(ctx, 20, AsteroidAssets.assets.height-5, "x: " + Math.round(state.landState.ship.x));
+    DrawText(ctx, 60, AsteroidAssets.assets.height-5, "y: " + Math.round(state.landState.ship.y)) ;
     if (state.landState.ship.landed) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-20, "Landed");
     }
-    if (!TestFlat(state.landState.surface, state.landState.ship.x)) {
+    if (!TestFlat(PopSurfaceBuffer(state.landState.surface), state.landState.ship.x)) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-35, "Warning: Not Flat");
     }
     if (state.landState.ship.Vy > 10) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-50, "Warning: Too Fast");
     }
-    if (!(state.landState.ship.angle < 5 && state.landState.ship.angle > -5)) {
+    if (!VerticallyAligned(state.landState.ship.angle)) {
         DrawText(ctx, 20, AsteroidAssets.assets.height-65, "Warning: Not Aligned");
     }
 }
