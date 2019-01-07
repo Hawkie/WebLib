@@ -6,7 +6,7 @@ import { IAsteroids, CreateAsteroids, DisplayAsteroids, UpdateAsteroids } from "
 import { IGraphicShip, CreateGraphicShip, DisplayGraphicShip } from "../../Components/GraphicShipComponent";
 import { IAsteroidStateStatic, CreateAsteroidGameStatic } from "./AsteroidGameStatic";
 import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
-import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
+import { DisplayTitle, DisplayText } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
 import { DisplayField, FieldGenMove } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
 import { DrawText } from "../../../../../../src/ts/gamelib/Views/TextView";
 import { DrawNumber } from "../../../../../../src/ts/gamelib/Views/ValueView";
@@ -83,6 +83,7 @@ export function DisplayAsteroidsState(ctx: DrawContext, state: IAsteroidsState):
     DisplayField(ctx, state.starField.particles);
     DisplayCoin(ctx, state.coin);
     DisplayGraphicShip(ctx, state.graphicShip);
+    DisplayText(ctx, "<arrow keys>: rotate/thrust, <space>: fire", 20, AsteroidAssets.assets.height -20);
 }
 
 

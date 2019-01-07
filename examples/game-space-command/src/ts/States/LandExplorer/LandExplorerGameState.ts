@@ -72,16 +72,17 @@ export function Display(ctx: DrawContext, state: ILandExplorerGameState): void {
     DisplayView(ctx, state.view, state.landState.ship.x, state.landState.ship.y, state.landState, {displayState: DisplayLandExplorer});
     DrawText(ctx, 20, AsteroidAssets.assets.height-5, "x: " + Math.round(state.landState.ship.x));
     DrawText(ctx, 60, AsteroidAssets.assets.height-5, "y: " + Math.round(state.landState.ship.y)) ;
+    DrawText(ctx, 20, AsteroidAssets.assets.height-20, "<arrow keys>: rotate/thrust, <space>: fire");
     if (state.landState.ship.landed) {
-        DrawText(ctx, 20, AsteroidAssets.assets.height-20, "Landed");
+        DrawText(ctx, 20, AsteroidAssets.assets.height-35, "Landed");
     }
     if (!TestFlat(PopSurfaceBuffer(state.landState.surface), state.landState.ship.x)) {
-        DrawText(ctx, 20, AsteroidAssets.assets.height-35, "Warning: Not Flat");
+        DrawText(ctx, 20, AsteroidAssets.assets.height-50, "Warning: Not Flat");
     }
     if (!TestLandingSpeed(state.landState.ship)) {
-        DrawText(ctx, 20, AsteroidAssets.assets.height-50, "Warning: Too Fast");
+        DrawText(ctx, 20, AsteroidAssets.assets.height-65, "Warning: Too Fast");
     }
     if (!VerticallyAligned(state.landState.ship.angle)) {
-        DrawText(ctx, 20, AsteroidAssets.assets.height-65, "Warning: Not Aligned");
+        DrawText(ctx, 20, AsteroidAssets.assets.height-80, "Warning: Not Aligned");
     }
 }

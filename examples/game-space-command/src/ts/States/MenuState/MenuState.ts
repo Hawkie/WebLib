@@ -3,9 +3,8 @@ import { IParticleField, CreateField } from "../../Components/FieldComponent";
 import { IStateProcessor } from "../../../../../../src/ts/gamelib/State/StateProcessor";
 import { DrawContext } from "../../../../../../src/ts/gamelib/Views/DrawContext";
 import { DisplayField, FieldGenMove } from "../../../../../../src/ts/gamelib/Components/ParticleFieldComponent";
-import { DisplayTitle } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
+import { DisplayTitle, DisplayText } from "../../../../../../src/ts/gamelib/Components/TitleComponent";
 import { Transforms } from "../../../../../../src/ts/gamelib/Physics/Transforms";
-import { Game } from "../../../../../../src/ts/gamelib/1Common/Game";
 import { AsteroidAssets } from "../../Assets/assets";
 import { IEventState } from "../../../../../../src/ts/gamelib/Events/EventProcessor";
 
@@ -63,6 +62,7 @@ export function DisplayMenuState(ctx: DrawContext, state: IMenuState): void {
     DisplayField(ctx, state.starField2.particles);
     DisplayTitle(ctx, state.title);
     DisplayMenu(ctx, 200, 100, state.menu);
+    DisplayText(ctx, "<q>: up, <a>: down:, <enter>: select phase", 20, AsteroidAssets.assets.height-20);
 }
 
 export function UpdateMenuState(state:IMenuState, timeModifier: number): IMenuState {
